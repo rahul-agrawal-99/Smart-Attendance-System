@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Results</title>
+</head>
+<script>
+    document.getElementById('myimg').src = document.getElementById('myimg').src + '?' + (new Date()).getTime();
+</script>
+<body>
+    {% if total == 0 %}
+    {% if t_count == 0 %}
+        <h1 style="color: red;">No Face Found in Uploaded Image</h1>  
+        {% else %}
+        <h1>Total Faces Found:{{t_count}}</h1>
+        <h1 style="color: rgb(5, 153, 238);">No Face from Uploaded Image Matched With Database </h1>  
+
+    {% endif %}
+    {% else %}
+    <h1>Total Faces Found:{{t_count}}</h1>
+    <h1>Total Faces Matched With Available Database:{{total}}</h1>
+    <h2>Face Matched With :</h2>
+    <h2>
+{% for i in face  %}
+
+&nbsp; &nbsp; &nbsp; {{loop.index}}. {{i}}     with Connfidance = {{confidance[loop.index -1]}}%<br>
+{% endfor %}
+    
+
+
+    </h2>
+    
+    <!-- <img src='saved.jpg' alt=''> -->
+    {% endif %}
+    <img src='{{imgpath}}' alt='' width="600px" height="600px" id="'myimg'">
+    <footer>
+        <br><br><br>
+        <a href='/' style="font-size: larger;">Click Here</a>
+         To Return Back
+      </footer>
+</body>
+</html>

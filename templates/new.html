@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Home -Page</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script>
+    var div = document.createElement('div');
+return ('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)
+</script>
+<style>
+    
+    .box__input{
+        align-items: center;
+    }
+#bt::hover{
+    color: black;
+}
+
+.box__error {
+  display: none;
+}
+    #up{
+        width: 50%;
+        height: 20%;
+        margin-top: 2%;
+        margin-left: 40%;
+        align-items: center;
+        
+    }
+    .box.has-advanced-upload {
+        background-color: white;
+        outline: 2px dashed black;
+        outline-offset: -10px;
+      }
+      .box.has-advanced-upload .box__dragndrop {
+        display: inline;
+      }
+      #ad{
+          width: 30%;
+          margin-left: 35%;
+      }
+      b{
+          font-size: 40px;
+          display: block;
+          text-align: center;
+          margin-bottom: 2%;
+      }
+      strong{
+          font-size: 30px;
+          display: block;
+          text-align: center;
+          
+          
+      }
+      footer{
+        text-align: end;
+        margin-top: 2%;
+        margin-right: 10%;
+      }
+      #large{
+        width: 300px;
+        height: 5%;
+        border: 2px solid black;
+      
+      }
+      #bt{
+        width: 100%;
+      }
+      #myP1{
+        font-size: 20px;
+       
+        text-align: center;
+        margin-bottom: 2%;
+    }
+</style>
+<script>
+
+  function demoDisplay() {
+    document.getElementById("myP1").style.display = "none";
+  }
+   
+
+
+</script>
+<body>
+    <b>ADD New Face </b>
+    <strong style="color: red;">Check Image Clarity Before Uploading </strong>
+    <strong>Image Contains Only 1 Face Of That Respective Person .</strong>
+
+
+
+    {% if newmsg ==1 %}
+    <p id="myP1" style="background-color: rgb(129, 201, 179);">
+ 
+      New Image is added is database Successfully
+  
+         <img  src="static/X.png" alt="First slide" width="30px" height="30px" onclick="demoDisplay()"></label>
+         <!-- <br>   <br>   <br>   <br> -->
+         </p>
+    {% endif %}
+    {% if newmsg == 0 %}
+    <p id="myP1" style="background-color: rgb(189, 67, 67);">
+ 
+      {{msg}}
+  
+         <img  src="static/X.png" alt="First slide" width="30px" height="30px" onclick="demoDisplay()"></label>
+         <!-- <br>   <br>   <br>   <br> -->
+         </p>
+    {% endif %}
+
+
+    <div id="up">
+        <form class="box" method="post" action="/" enctype="multipart/form-data">
+            <div class="box__input">
+              <input class="box__file" type="file" name="imagefile" id="file" data-multiple-caption="{count} files selected" multiple />
+              <br>
+              <label for="file"><strong>Choose a file</strong><span class="box__dragndrop"> or drag it here</span>.</label>
+              <br>
+              <br>
+              <label for='username'>Name of Person in the uploaded Image</label>
+              <br>
+              <!-- <button class="box__button" type="submit">Upload</button> -->
+              <input type="text" id="username" name="username" required>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <div id='large'>
+              <button type="submit" class="btn btn-warning btn-lg" id="bt">Upload</button></div>
+            </div>
+            
+          </form>
+    <!-- <form action="/upload" method="post" id="upload-form" enctype="multipart/form-data">
+        <input type="file" name="imagefile" id="imagefile"/>
+        <input type="submit" />
+      </form> -->
+    </div>
+
+    <footer>
+      <a href='/' style="font-size: larger;">Click Here</a>
+       To Return Back
+    </footer>
+</body>
+</html>
