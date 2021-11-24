@@ -42,4 +42,3 @@ def train(img_name):
     # os.remove("static//temp//"+ img_name + ".jpg")
     return True
 
-train("ree")
